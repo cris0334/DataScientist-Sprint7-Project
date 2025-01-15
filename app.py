@@ -14,7 +14,7 @@ car_data['paint_color'] = car_data['paint_color'].fillna('other')
 car_data['is_4wd'] = car_data['is_4wd'].fillna(0)
 
 hist_button = st.button('Construir histograma') # crear un botón
-scatter_button = st.button('Construir dispersión') # crear otro botón
+scatter_checkbox = st.checkbox('Construir dispersión') # crear otro botón
 
 def show_chart(chart):
     """Muestra una gráfica en la página web"""
@@ -30,7 +30,7 @@ if hist_button: # al hacer clic en el botón
     # mostrar un gráfico Plotly interactivo
     show_chart(color_hist)
 
-if scatter_button: # al hacer clic en el botón
+if scatter_checkbox: # al hacer clic en el botón
     # escribir un mensaje
     st.write('Creación de un dispersión para el conjunto de datos de anuncios de venta de coches')
 
