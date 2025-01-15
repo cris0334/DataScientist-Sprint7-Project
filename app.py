@@ -13,6 +13,8 @@ car_data['odometer'] = car_data['odometer'].fillna(-1)
 car_data['paint_color'] = car_data['paint_color'].fillna('other')
 car_data['is_4wd'] = car_data['is_4wd'].fillna(0)
 
+st.header('Gráficas para mostrar la relación de colores de anuncios de ventas de autos')
+
 hist_button = st.button('Construir histograma') # crear un botón
 scatter_checkbox = st.checkbox('Construir dispersión') # crear otro botón
 
@@ -22,7 +24,7 @@ def show_chart(chart):
 
 if hist_button: # al hacer clic en el botón
     # mensaje
-    st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
+    st.write('Histograma de la cantidad de anuncios por color')
 
     # histograma
     color_hist = px.histogram(car_data, x='paint_color')
@@ -32,7 +34,7 @@ if hist_button: # al hacer clic en el botón
 
 if scatter_checkbox: # al hacer clic en el botón
     # escribir un mensaje
-    st.write('Creación de un dispersión para el conjunto de datos de anuncios de venta de coches')
+    st.write('Gráfica de dispersión para la relación color/precio de los anuncios')
 
     # crear un diagrama de dispersión
     color_scatter = px.scatter(car_data, x='paint_color', y='price')
